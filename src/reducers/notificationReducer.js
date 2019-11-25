@@ -6,7 +6,11 @@
     }
   }
   
-  
+  export const clearNotification = () => {
+    return {
+      type: 'SET_NOTIFICATION'   
+    }
+  }
   
   const initialState = {
       content: 'this here is a notification message'
@@ -19,6 +23,12 @@
         return {
             ...state,
             content: newContent
+        }
+      }
+      case 'CLEAR_NOTIFICATION': {
+        return {
+            ...state,
+            content: ''
         }
       }
       default: {
