@@ -11,9 +11,7 @@ const App = (props) => {
       <Notification 
         store={props.store}
       />
-      <AnecdoteList 
-        store={props.store}
-      />
+      <AnecdoteList/>
       <AnecdoteForm 
         store={props.store}
       />
