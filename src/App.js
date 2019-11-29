@@ -8,13 +8,9 @@ const App = (props) => {
 
   return (
     <div>
-      <Notification 
-        store={props.store}
-      />
-      <AnecdoteList/>
-      <AnecdoteForm 
-        store={props.store}
-      />
+      <Notification />
+      <AnecdoteList />
+      <AnecdoteForm />
     </div>
   )
 }

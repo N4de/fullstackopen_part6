@@ -5,16 +5,14 @@ import {setNotification, clearNotification} from '../reducers/notificationReduce
 
 const AnecdoteList = (props) => {
     const anecdotes = props.anecdotes;
-    console.log(anecdotes);
     const vote = (anecdote) => {
         const id = anecdote.id;
-        console.log('vote', id)
-        // store.dispatch(voteForAnecdote(id));
-        // store.dispatch(setNotification(`you voted '${anecdote.content}'`));
+        props.voteForAnecdote(id);
+        props.setNotification(`you voted '${anecdote.content}'`);
 
-        // setTimeout(() => {
-        //     store.dispatch(clearNotification());
-        // }, 5000);
+        setTimeout(() => {
+            props.clearNotification();
+        }, 5000);
       }
 
     return(
@@ -36,16 +34,22 @@ const AnecdoteList = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         anecdotes: state.anecdotes
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log(dispatch);
     return {
-
+        voteForAnecdote: value => {
+            dispatch(voteForAnecdote(value))
+        },
+        setNotification: value => {
+            dispatch(setNotification(value));
+        },
+        clearNotification: () => {
+            dispatch(clearNotification());
+        }
     }
 }
 
