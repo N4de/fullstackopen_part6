@@ -5,6 +5,8 @@ import { Provider } from 'react-redux'
 import App from './App'
 import anecdoteReducer from './reducers/anecdoteReducer';
 import notificationReducer from './reducers/notificationReducer'
+import anecdoteService from './services/anecdoteService';
+import {initAnecdotes} from './reducers/anecdoteReducer';
 
 const reducer = combineReducers({
   anecdotes: anecdoteReducer,
@@ -12,6 +14,10 @@ const reducer = combineReducers({
 })
 
 const store = createStore(reducer)
+
+anecdoteService.getAll().then(anecdotes =>
+  store.dispatch(initAnecdotes(anecdotes))
+)
 
 const render = () => {
   ReactDOM.render(
