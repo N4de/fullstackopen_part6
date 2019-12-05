@@ -9,14 +9,15 @@ const Notification = (props) => {
   }
   return (
     <div style={style}>
-      {props.notifications.content}
+      {props.notification.content}
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    notifications: state.notifications
+    notification: state.notification
   };
 }
 
